@@ -89,16 +89,16 @@
     width: 1px; height: 1.1rem; background: var(--border); margin: 0 0.15rem;
     flex-shrink: 0;
   }
-  /* Keep anchor jumps clear of the sticky (often multi-row) toc. */
+  /* Clear sticky toc without leaving a big gap of the previous section. */
   html {
-    scroll-padding-top: 9.5rem;
+    scroll-padding-top: 7.25rem;
   }
   h2[id], h3[id] {
-    scroll-margin-top: 9.5rem;
+    scroll-margin-top: 7.25rem;
   }
   @media (min-width: 641px) {
-    html { scroll-padding-top: 5rem; }
-    h2[id], h3[id] { scroll-margin-top: 5rem; }
+    html { scroll-padding-top: 4.25rem; }
+    h2[id], h3[id] { scroll-margin-top: 4.25rem; }
   }
   table {
     width: 100%; border-collapse: collapse; font-size: 0.92rem;
