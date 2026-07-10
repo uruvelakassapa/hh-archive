@@ -67,7 +67,7 @@
   .btn-primary:hover {
     background: var(--link-hover); border-color: var(--link-hover); color: #fff;
   }
-  nav.years {
+  nav.toc {
     position: sticky; top: 0; z-index: 10;
     background: color-mix(in srgb, var(--bg) 92%, transparent);
     backdrop-filter: blur(6px);
@@ -75,14 +75,21 @@
     display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
     border-bottom: 1px solid var(--border);
   }
-  nav.years a {
+  nav.toc a {
     display: inline-block; padding: 0.2rem 0.55rem;
     background: var(--chip); border: 1px solid var(--chip-border);
     border-radius: 999px; font-size: 0.85rem; color: var(--fg);
   }
-  nav.years a:hover { background: var(--chip-border); text-decoration: none; }
-  nav.years .label { color: var(--muted); font-size: 0.85rem; margin-right: 0.25rem; }
-  /* Anchor targets clear the sticky year nav (multi-row on mobile). */
+  nav.toc a:hover { background: var(--chip-border); text-decoration: none; }
+  nav.toc a.section {
+    background: #fff; border-color: var(--link); color: var(--link); font-weight: 600;
+  }
+  nav.toc a.section:hover { background: var(--chip); color: var(--link-hover); }
+  nav.toc .divider {
+    width: 1px; height: 1.1rem; background: var(--border); margin: 0 0.15rem;
+    flex-shrink: 0;
+  }
+  /* Anchor targets clear the sticky toc (multi-row on mobile). */
   h2[id], h3[id] {
     scroll-margin-top: 6.5rem;
   }
@@ -171,14 +178,11 @@
 <p class="meta">Catalog of Hillside Hermitage talks and documents archived on <a href="https://archive.org">Internet Archive</a>.</p>
 <p class="updated">Updated 2026-07-10</p>
 <p class="stats"><strong>526</strong> talks<span class="sep">·</span><strong>129</strong> with transcript<span class="sep">·</span><strong>166</strong> documents</p>
-<h2>Internet Archive collections</h2>
-<div class="cards">
-<div class="card"><div class="label">Audio — talks 2015–2023</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2015-2023">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2015-2023/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
-<div class="card"><div class="label">Audio — talks 2024–Present</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
-<div class="card"><div class="label">Documents — transcripts &amp; books</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-documents">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-documents/formats=TEXT%20PDF,EPUB,ITEM%20TILE,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
-</div>
-<nav class="years" aria-label="Years">
-<span class="label">Years</span>
+<nav class="toc" aria-label="Contents">
+<a class="section" href="#downloads">Downloads</a>
+<a class="section" href="#essays">Essays</a>
+<a class="section" href="#documents">Documents</a>
+<span class="divider" aria-hidden="true"></span>
 <a href="#2015">2015</a>
 <a href="#2016">2016</a>
 <a href="#2017">2017</a>
@@ -191,9 +195,14 @@
 <a href="#2024">2024</a>
 <a href="#2025">2025</a>
 <a href="#2026">2026</a>
-<a href="#essays">Essays</a>
-<a href="#documents">Documents</a>
 </nav>
+<h2 id="downloads">Downloads</h2>
+<p class="note">Bulk zips and browse pages for the Internet Archive collections.</p>
+<div class="cards">
+<div class="card"><div class="label">Audio — talks 2015–2023</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2015-2023">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2015-2023/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+<div class="card"><div class="label">Audio — talks 2024–Present</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+<div class="card"><div class="label">Documents — transcripts &amp; books</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-documents">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-documents/formats=TEXT%20PDF,EPUB,ITEM%20TILE,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+</div>
 <h2 id="talks">Talks</h2>
 <h3 id="2015">2015 <span class="muted">(6)</span></h3>
 <table>
