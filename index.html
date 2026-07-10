@@ -31,14 +31,17 @@
   h1 { font-size: 1.75rem; margin: 0 0 0.25rem; font-weight: 650; }
   h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
   h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--muted); }
-  p, .meta { color: var(--muted); margin: 0.35rem 0 1rem; }
+  p, .meta { color: var(--muted); margin: 0.35rem 0 0.75rem; }
+  .updated {
+    color: var(--muted); font-size: 0.85rem; margin: 0 0 0.85rem;
+  }
   a { color: var(--link); text-decoration: none; }
   a:hover { color: var(--link-hover); text-decoration: underline; }
   .stats {
-    display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
-    margin: 0.75rem 0 1.25rem; color: var(--muted); font-size: 0.95rem;
+    margin: 0 0 1.5rem; color: var(--fg); font-size: 0.95rem;
   }
-  .stats strong { color: var(--fg); font-weight: 600; }
+  .stats strong { font-weight: 600; }
+  .stats .sep { color: var(--muted); margin: 0 0.35rem; }
   .cards {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 0.75rem; margin: 0.75rem 0 1.5rem;
@@ -156,7 +159,8 @@
 <main>
 <h1>HH Archive Catalog</h1>
 <p class="meta">Catalog of Hillside Hermitage talks and documents archived on <a href="https://archive.org">Internet Archive</a>.</p>
-<div class="stats"><span>Generated <strong>2026-07-10</strong></span><span><strong>526</strong> talks</span><span><strong>526</strong> with audio</span><span><strong>129</strong> with transcript</span><span><strong>166</strong>/169 documents on IA</span></div>
+<p class="updated">Updated 2026-07-10</p>
+<p class="stats"><strong>526</strong> talks<span class="sep">·</span><strong>129</strong> with transcript<span class="sep">·</span><strong>166</strong> documents</p>
 <h2>Internet Archive collections</h2>
 <div class="cards">
 <div class="card"><div class="label">Audio — talks 2015–2023</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2015-2023">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2015-2023/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
