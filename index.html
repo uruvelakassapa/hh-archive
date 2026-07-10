@@ -40,15 +40,30 @@
   }
   .stats strong { color: var(--fg); font-weight: 600; }
   .cards {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 0.75rem; margin: 0.75rem 0 1.5rem;
   }
   .card {
     background: var(--card); border: 1px solid var(--border);
     border-radius: 8px; padding: 0.85rem 1rem;
   }
-  .card .label { font-weight: 600; margin-bottom: 0.35rem; }
-  .card .actions { display: flex; gap: 0.75rem; font-size: 0.9rem; }
+  .card .label { font-weight: 600; margin-bottom: 0.6rem; }
+  .card .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .btn {
+    display: inline-block; padding: 0.35rem 0.75rem;
+    border: 1px solid var(--chip-border); border-radius: 6px;
+    background: var(--chip); color: var(--fg); font-size: 0.875rem;
+    font-weight: 600; line-height: 1.3; text-decoration: none;
+  }
+  .btn:hover {
+    background: var(--chip-border); color: var(--fg); text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--link); border-color: var(--link); color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--link-hover); border-color: var(--link-hover); color: #fff;
+  }
   nav.years {
     position: sticky; top: 0; z-index: 10;
     background: color-mix(in srgb, var(--bg) 92%, transparent);
@@ -79,7 +94,12 @@
   }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #f7f6f3; }
-  td.title { word-break: break-word; }
+  /* Prefer wrapping at spaces; only break long tokens if needed */
+  td.title {
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+  }
   td.date, td.code, td.dur { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
   td.code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85rem; }
   td.links { white-space: nowrap; }
@@ -93,12 +113,42 @@
   .sep { color: var(--border); }
   .note { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
   footer { margin-top: 2.5rem; font-size: 0.85rem; color: var(--muted); }
+  /* Mobile: stack each talk as a card so titles get full width */
   @media (max-width: 640px) {
     main { padding: 1rem 0.75rem 2rem; }
-    table { font-size: 0.85rem; }
-    th, td { padding: 0.35rem 0.4rem; }
-    td.dur { display: none; }
-    th.dur { display: none; }
+    table, thead, tbody, th, td, tr { display: block; width: 100%; }
+    thead { display: none; }
+    table {
+      border: none; background: transparent; overflow: visible;
+    }
+    tr {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; margin-bottom: 0.65rem; padding: 0.7rem 0.8rem;
+    }
+    tr:hover td { background: transparent; }
+    tr:last-child td { border-bottom: none; }
+    td {
+      border: none; padding: 0; width: auto !important;
+    }
+    td.date, td.code, td.dur {
+      display: inline; white-space: nowrap; margin-right: 0.5rem;
+      font-size: 0.85rem;
+    }
+    td.date::after { content: ""; }
+    td.code { color: var(--fg); font-weight: 600; }
+    td.dur { color: var(--muted); }
+    td.dur:not(:empty)::before { content: "· "; color: var(--muted); }
+    td.title {
+      display: block; margin: 0.35rem 0 0.5rem;
+      font-size: 0.95rem; line-height: 1.4;
+      overflow-wrap: anywhere; /* long unbroken tokens only */
+      word-break: normal;
+    }
+    td.links {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      white-space: normal;
+    }
+    td.links .sep { display: none; }
   }
 </style>
 </head>
@@ -109,9 +159,9 @@
 <div class="stats"><span>Generated <strong>2026-07-10</strong></span><span><strong>526</strong> talks</span><span><strong>526</strong> with audio</span><span><strong>129</strong> with transcript</span><span><strong>166</strong>/169 documents on IA</span></div>
 <h2>Internet Archive collections</h2>
 <div class="cards">
-<div class="card"><div class="label">Audio — talks 2015–2023</div><div class="actions"><a href="https://archive.org/details/hillside-hermitage-audio-archive-2015-2023">Browse</a><a href="https://archive.org/compress/hillside-hermitage-audio-archive-2015-2023/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
-<div class="card"><div class="label">Audio — talks 2024–Present</div><div class="actions"><a href="https://archive.org/details/hillside-hermitage-audio-archive-2">Browse</a><a href="https://archive.org/compress/hillside-hermitage-audio-archive-2/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
-<div class="card"><div class="label">Documents — transcripts &amp; books</div><div class="actions"><a href="https://archive.org/details/hillside-hermitage-documents">Browse</a><a href="https://archive.org/compress/hillside-hermitage-documents/formats=TEXT%20PDF,EPUB,ITEM%20TILE,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+<div class="card"><div class="label">Audio — talks 2015–2023</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2015-2023">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2015-2023/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+<div class="card"><div class="label">Audio — talks 2024–Present</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-audio-archive-2">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-audio-archive-2/formats=VBR%20MP3,ITEM%20TILE,JPEG%20THUMB,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
+<div class="card"><div class="label">Documents — transcripts &amp; books</div><div class="actions"><a class="btn" href="https://archive.org/details/hillside-hermitage-documents">Browse</a><a class="btn btn-primary" href="https://archive.org/compress/hillside-hermitage-documents/formats=TEXT%20PDF,EPUB,ITEM%20TILE,ARCHIVE%20BITTORRENT,METADATA">Download zip</a></div></div>
 </div>
 <nav class="years" aria-label="Years">
 <span class="label">Years</span>
