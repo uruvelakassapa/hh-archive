@@ -82,6 +82,13 @@
   }
   nav.years a:hover { background: var(--chip-border); text-decoration: none; }
   nav.years .label { color: var(--muted); font-size: 0.85rem; margin-right: 0.25rem; }
+  /* Anchor targets clear the sticky year nav (multi-row on mobile). */
+  h2[id], h3[id] {
+    scroll-margin-top: 6.5rem;
+  }
+  @media (min-width: 641px) {
+    h2[id], h3[id] { scroll-margin-top: 4rem; }
+  }
   table {
     width: 100%; border-collapse: collapse; font-size: 0.92rem;
     background: var(--card); border: 1px solid var(--border); border-radius: 8px;
