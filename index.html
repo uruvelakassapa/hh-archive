@@ -119,12 +119,14 @@
   /* Mobile: stack each talk as a card so titles get full width */
   @media (max-width: 640px) {
     main { padding: 1rem 0.75rem 2rem; }
-    table, thead, tbody, th, td, tr { display: block; width: 100%; }
+    table, thead, tbody, th { display: block; width: 100%; }
     thead { display: none; }
     table {
       border: none; background: transparent; overflow: visible;
     }
+    tbody { display: block; }
     tr {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.45rem;
       background: var(--card); border: 1px solid var(--border);
       border-radius: 8px; margin-bottom: 0.65rem; padding: 0.7rem 0.8rem;
     }
@@ -133,21 +135,22 @@
     td {
       border: none; padding: 0; width: auto !important;
     }
+    /* Meta line: date · code · duration, then full-width title, then links */
     td.date, td.code, td.dur {
-      display: inline; white-space: nowrap; margin-right: 0.5rem;
-      font-size: 0.85rem;
+      order: 1; display: inline; white-space: nowrap; font-size: 0.85rem;
     }
-    td.date::after { content: ""; }
     td.code { color: var(--fg); font-weight: 600; }
     td.dur { color: var(--muted); }
-    td.dur:not(:empty)::before { content: "· "; color: var(--muted); }
+    td.dur:not(:empty)::before { content: "· "; }
     td.title {
-      display: block; margin: 0.35rem 0 0.5rem;
+      order: 2; flex: 0 0 100%;
+      margin: 0.3rem 0 0.45rem;
       font-size: 0.95rem; line-height: 1.4;
-      overflow-wrap: anywhere; /* long unbroken tokens only */
+      overflow-wrap: anywhere;
       word-break: normal;
     }
     td.links {
+      order: 3; flex: 0 0 100%;
       display: flex; flex-wrap: wrap; gap: 0.35rem;
       white-space: normal;
     }
