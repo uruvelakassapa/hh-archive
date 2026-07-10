@@ -89,12 +89,16 @@
     width: 1px; height: 1.1rem; background: var(--border); margin: 0 0.15rem;
     flex-shrink: 0;
   }
-  /* Anchor targets clear the sticky toc (multi-row on mobile). */
+  /* Keep anchor jumps clear of the sticky (often multi-row) toc. */
+  html {
+    scroll-padding-top: 9.5rem;
+  }
   h2[id], h3[id] {
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: 9.5rem;
   }
   @media (min-width: 641px) {
-    h2[id], h3[id] { scroll-margin-top: 4rem; }
+    html { scroll-padding-top: 5rem; }
+    h2[id], h3[id] { scroll-margin-top: 5rem; }
   }
   table {
     width: 100%; border-collapse: collapse; font-size: 0.92rem;
@@ -781,11 +785,11 @@
 <h2 id="essays">Essays</h2>
 <p class="note">Offline EPUB/PDF editions of the <a href="https://www.hillsidehermitage.org/writings/">website writings</a>, footnotes preserved.</p>
 <table><thead><tr><th>Essays</th><th>Links</th></tr></thead><tbody>
-<tr><td class="title">Hillside Hermitage — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-all_hh_essays.pdf">File</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-all_hh_essays.epub">File</a></td></tr>
-<tr><td class="title">Ajahn Nyanamoli Thero — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_nyanamoli.pdf">File</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_nyanamoli.epub">File</a></td></tr>
-<tr><td class="title">Ajahn Thaniyo — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_thaniyo.pdf">File</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_thaniyo.epub">File</a></td></tr>
-<tr><td class="title">Sister Medhini — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-sister_medhini.pdf">File</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-sister_medhini.epub">File</a></td></tr>
-<tr><td class="title">Bhikkhu Anīgha — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-bhikkhu_anigha.pdf">File</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-bhikkhu_anigha.epub">File</a></td></tr>
+<tr><td class="title">Hillside Hermitage — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-all_hh_essays.pdf">PDF</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-all_hh_essays.epub">EPUB</a></td></tr>
+<tr><td class="title">Ajahn Nyanamoli Thero — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_nyanamoli.pdf">PDF</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_nyanamoli.epub">EPUB</a></td></tr>
+<tr><td class="title">Ajahn Thaniyo — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_thaniyo.pdf">PDF</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-ajahn_thaniyo.epub">EPUB</a></td></tr>
+<tr><td class="title">Sister Medhini — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-sister_medhini.pdf">PDF</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-sister_medhini.epub">EPUB</a></td></tr>
+<tr><td class="title">Bhikkhu Anīgha — Collected Essays</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-bhikkhu_anigha.pdf">PDF</a> <span class="sep">·</span> <a class="badge" href="https://archive.org/download/hillside-hermitage-documents/hh-essays-bhikkhu_anigha.epub">EPUB</a></td></tr>
 </tbody></table>
 <h2 id="documents">Documents</h2>
 <table><thead><tr><th>Document</th><th>Links</th></tr></thead><tbody>
