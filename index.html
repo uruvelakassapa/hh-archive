@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HH Archive Catalog</title>
+<meta name="description" content="Catalog of Hillside Hermitage talks and writings archived on the Internet Archive.">
+<title>Hillside Hermitage Archive</title>
 <style>
   :root {
+    color-scheme: light dark;
     --bg: #faf9f7;
     --fg: #1a1a1a;
     --muted: #6b6b6b;
@@ -15,6 +17,23 @@
     --link-hover: #0d3d2f;
     --chip: #eef4f1;
     --chip-border: #c5d9d0;
+    --th-bg: #f0efeb;
+    --row-hover: #f7f6f3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16181a;
+      --fg: #e8e6e3;
+      --muted: #9c9a96;
+      --border: #33363a;
+      --card: #1e2124;
+      --link: #6fbf9f;
+      --link-hover: #8fd4b5;
+      --chip: #22302a;
+      --chip-border: #3a5248;
+      --th-bg: #24272b;
+      --row-hover: #24272b;
+    }
   }
   * { box-sizing: border-box; }
   body {
@@ -32,9 +51,6 @@
   h2 { font-size: 1.25rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
   h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--muted); }
   p, .meta { color: var(--muted); margin: 0.35rem 0 0.75rem; }
-  .updated {
-    color: var(--muted); font-size: 0.85rem; margin: 0 0 0.85rem;
-  }
   a { color: var(--link); text-decoration: none; }
   a:hover { color: var(--link-hover); text-decoration: underline; }
   .stats {
@@ -62,10 +78,10 @@
     background: var(--chip-border); color: var(--fg); text-decoration: none;
   }
   .btn-primary {
-    background: var(--link); border-color: var(--link); color: #fff;
+    background: var(--link); border-color: var(--link); color: var(--bg);
   }
   .btn-primary:hover {
-    background: var(--link-hover); border-color: var(--link-hover); color: #fff;
+    background: var(--link-hover); border-color: var(--link-hover); color: var(--bg);
   }
   nav.toc {
     position: sticky; top: 0; z-index: 10;
@@ -82,7 +98,7 @@
   }
   nav.toc a:hover { background: var(--chip-border); text-decoration: none; }
   nav.toc a.section {
-    background: #fff; border-color: var(--link); color: var(--link); font-weight: 600;
+    background: var(--card); border-color: var(--link); color: var(--link); font-weight: 600;
   }
   nav.toc a.section:hover { background: var(--chip); color: var(--link-hover); }
   nav.toc .divider {
@@ -91,10 +107,10 @@
   }
   /* Clear sticky toc without leaving a big gap of the previous section. */
   html {
-    scroll-padding-top: 7.25rem;
+    scroll-padding-top: 6rem;
   }
   h2[id], h3[id] {
-    scroll-margin-top: 7.25rem;
+    scroll-margin-top: 6rem;
   }
   @media (min-width: 641px) {
     html { scroll-padding-top: 4.25rem; }
@@ -110,11 +126,11 @@
     border-bottom: 1px solid var(--border); vertical-align: top;
   }
   th {
-    background: #f0efeb; font-weight: 600; font-size: 0.8rem;
+    background: var(--th-bg); font-weight: 600; font-size: 0.8rem;
     text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted);
   }
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #f7f6f3; }
+  tr:hover td { background: var(--row-hover); }
   /* Prefer wrapping at spaces; only break long tokens if needed */
   td.title {
     overflow-wrap: break-word;
@@ -137,7 +153,11 @@
   /* Mobile: stack each talk as a card so titles get full width */
   @media (max-width: 640px) {
     main { padding: 1rem 0.75rem 2rem; }
-    table, thead, tbody, th { display: block; width: 100%; }
+    /* Compact nav chips so the toc fits in ~3 rows on phones */
+    nav.toc { gap: 0.3rem; padding: 0.5rem 0; }
+    nav.toc a { font-size: 0.72rem; padding: 0.1rem 0.4rem; }
+    nav.toc .divider { height: 0.9rem; }
+    table, thead, tbody { display: block; width: 100%; }
     thead { display: none; }
     table {
       border: none; background: transparent; overflow: visible;
@@ -149,7 +169,6 @@
       border-radius: 8px; margin-bottom: 0.65rem; padding: 0.7rem 0.8rem;
     }
     tr:hover td { background: transparent; }
-    tr:last-child td { border-bottom: none; }
     td {
       border: none; padding: 0; width: auto !important;
     }
@@ -178,11 +197,12 @@
 </head>
 <body>
 <main>
-<h1>HH Archive Catalog</h1>
-<p class="meta">Catalog of Hillside Hermitage talks and documents archived on <a href="https://archive.org">Internet Archive</a>. <a href="https://www.hillsidehermitage.org/">Main Website</a>.</p>
-<p class="updated">Updated 2026-07-14</p>
+<h1>Hillside Hermitage Archive</h1>
+<p class="meta">Talks and writings from <a href="https://www.hillsidehermitage.org/">Hillside Hermitage</a>, archived on the <a href="https://archive.org">Internet Archive</a>.</p>
 <p class="stats"><strong>526</strong> talks<span class="sep">·</span><strong>129</strong> with transcript<span class="sep">·</span><strong>166</strong> documents</p>
 <nav class="toc" aria-label="Contents">
+<a class="section" href="https://www.hillsidehermitage.org/">Main Website ↗</a>
+<span class="divider" aria-hidden="true"></span>
 <a class="section" href="#downloads">Downloads</a>
 <span class="divider" aria-hidden="true"></span>
 <a class="section" href="#talks">Talks</a>
@@ -824,7 +844,7 @@
 <tr><td class="title">Uproot Assumptions, Uproot Suffering_Thaniyo</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/Uproot%20Assumptions%2C%20Uproot%20Suffering_Thaniyo.pdf">PDF</a></td></tr>
 <tr><td class="title">WHAT THE JHĀNAS ACTUALLY ARE - Bhikkhu Anīgha</td><td class="links"><a class="badge" href="https://archive.org/download/hillside-hermitage-documents/WHAT%20THE%20JH%C4%80NAS%20ACTUALLY%20ARE%20-%20Bhikkhu%20An%C4%ABgha.epub">EPUB</a></td></tr>
 </tbody></table>
-<footer>Generated 2026-07-14 · Hillside Hermitage archive catalog</footer>
+<footer>Generated 2026-07-14 · <a href="https://www.hillsidehermitage.org/">hillsidehermitage.org</a></footer>
 </main>
 </body>
 </html>
